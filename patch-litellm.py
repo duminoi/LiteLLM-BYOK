@@ -21,10 +21,38 @@ if sys.platform == "win32":
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
     sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
-TRANSFORMATION_FILE = (
-    r"C:\Users\ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages"
-    r"\litellm\responses\litellm_completion_transformation\transformation.py"
-)
+def _find_transformation_file():
+    try:
+        import litellm
+        pkg_dir = os.path.dirname(litellm.__file__)
+        candidate = os.path.join(
+            pkg_dir, "responses", "litellm_completion_transformation", "transformation.py"
+        )
+        if os.path.exists(candidate):
+            return os.path.normpath(candidate)
+    except ImportError:
+        pass
+
+    candidates = []
+    if sys.platform == "win32":
+        for base in [os.environ.get("PROGRAMFILES", "C:\\Program Files"),
+                     os.environ.get("PROGRAMFILES(X86)", "C:\\Program Files (x86)"),
+                     os.environ.get("LOCALAPPDATA", os.path.expanduser("~\\AppData\\Local"))]:
+            candidates.append(os.path.join(base, "Python", "Lib", "site-packages",
+                                            "litellm", "responses",
+                                            "litellm_completion_transformation",
+                                            "transformation.py"))
+            candidates.append(os.path.join(base, "Programs", "Python", "Lib", "site-packages",
+                                            "litellm", "responses",
+                                            "litellm_completion_transformation",
+                                            "transformation.py"))
+
+    for c in candidates:
+        if os.path.exists(c):
+            return os.path.normpath(c)
+    return None
+
+TRANSFORMATION_FILE = _find_transformation_file()
 
 # Moi patch: (ten, marker_original, replacement, marker_da_patch)
 PATCHES = [

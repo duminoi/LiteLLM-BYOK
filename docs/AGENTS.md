@@ -16,27 +16,25 @@
 git clone <repo-url> F:\Projects\litellm-byok
 cd F:\Projects\litellm-byok
 
-# 2. Tạo file .env từ template, điền API key thật
-Copy-Item .env.example .env
-notepad .env   # sửa OPENCODE_GO_API_KEY thành key thật của bạn
+# 2. Auto setup (check Python, tạo .env, cài pip, patch LiteLLM)
+powershell -ExecutionPolicy Bypass -File .\setup.ps1
 
-# 3. Patch LiteLLM (idempotent, tự động skip nếu đã patch)
-python patch-litellm.py
-
-# 4. Start proxy (detached, sống khi đóng terminal)
+# 3. Start proxy (detached, sống khi đóng terminal)
 powershell -ExecutionPolicy Bypass -File .\start-proxy.ps1
 
-# 5. Verify
+# 4. Verify
 curl http://127.0.0.1:4000/health/liveliness
 
-# 6. Cấu hình Codex Desktop
-#    Mở file C:\Users\<USER>\.codex\config.toml
-#    Copy nội dung từ [Codex Desktop Config](#codex-desktop-config) bên dưới
-#    Sửa đường dẫn model_catalog_json thành đường dẫn tuyệt đối của máy bạn
-
-# 7. Restart Codex Desktop (close + reopen app) để load catalog
-#    Picker sẽ hiển thị 17 models
+# 5. Mở Codex Desktop, chọn model và dùng
 ```
+
+**Lưu ý:** `setup.ps1` chỉ chạy 1 lần khi clone máy mới. Nó tự động:
+- Kiểm tra Python 3.10+
+- Copy `.env.example` → `.env` nếu chưa có
+- Prompt nhập `OPENCODE_GO_API_KEY` nếu chưa config
+- `pip install -r requirements.txt`
+- Patch LiteLLM (dynamic path detection, không hardcode)
+- Hướng dẫn cấu hình Codex Desktop config.toml
 
 ---
 
