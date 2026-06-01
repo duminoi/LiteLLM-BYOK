@@ -326,7 +326,34 @@ Hai patches ở trên fix lỗi trong quá trình transform.
 
 ---
 
-## 17 Models
+## 22 Models (merged catalog)
+
+### GPT models gốc của Codex
+
+| Slug              | Provider | Format | Image | Context | Ghi chú                 |
+|-------------------|----------|--------|:-----:|---------|--------------------------|
+| gpt-5.4           | OpenAI   | native | ✓     | 272K-1M| flagship, xhigh reasoning |
+| gpt-5.4-mini      | OpenAI   | native | ✓     | 272K    | fast, cost-efficient      |
+| gpt-5.1           | OpenAI   | native | ✓     | 272K    | everyday coding           |
+| gpt-5             | OpenAI   | native | ✓     | 272K    | base model                |
+
+> ⚠ **Lưu ý:** GPT models được thêm vào `model_catalog_json` để hiển thị trong
+> picker, nhưng **cần model provider riêng để gọi được**.
+> Hiện tại config đang dùng `model_provider = "litellm_byok"` trỏ tới LiteLLM
+> proxy (localhost:4000). LiteLLM không có route cho GPT models, nên chọn
+> GPT model sẽ báo lỗi upstream.
+>
+> Để dùng GPT models song song, thêm 1 provider OpenAI trong config.toml:
+> ```toml
+> [model_providers.openai_default]
+> name = "OpenAI Direct"
+> base_url = "https://api.openai.com/v1"
+> wire_api = "responses"
+> # Không cần experimental_bearer_token nếu đã login Codex
+> ```
+> Sau đó chọn model provider tương ứng từ Codex picker dropdown.
+
+### BYOK models (qua LiteLLM + OpenCode Go)
 
 | Slug              | Provider (real)       | Format           | Image | Ghi chú                    |
 |-------------------|----------------------|------------------|:-----:|----------------------------|
