@@ -499,6 +499,7 @@ powershell -ExecutionPolicy Bypass -File F:\Projects\litellm-byok\start-proxy.ps
 - [Codex CLI - custom providers](https://ofox.ai/blog/codex-cli-custom-model-providers-byo-setup/)
 - [Codex wire_api deprecation](https://blog.csdn.net/qq_36396104/article/details/156774089)
 - [LiteLLM proxy docs](https://docs.litellm.ai/docs/proxy/quick_start)
+- [LiteLLM source (issues, feature request)](https://github.com/BerriAI/litellm)
 - [OpenCode Go dashboard](https://opencode.ai)
 
 ---

@@ -115,3 +115,4 @@ Restart: chạy lại `start-proxy.ps1`.
 - API docs: https://opencode.ai/docs/go/
 - Model list: `GET https://opencode.ai/zen/go/v1/models` (header `Authorization: Bearer <key>`)
 - LiteLLM docs: https://docs.litellm.ai/docs/simple_proxy
+- LiteLLM source (issue, feature request): https://github.com/BerriAI/litellm
