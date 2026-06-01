@@ -6,10 +6,22 @@
       "description": "Moonshot Kimi K2.5 - 256K context, code specialist.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -34,7 +46,7 @@
       "auto_compact_token_limit": 245760,
       "effective_context_window_percent": 95,
       "experimental_supported_tools": [],
-      "input_modalities": ["text"],
+      "input_modalities": ["text", "image"],
       "supports_search_tool": false
     },
     {
@@ -43,10 +55,22 @@
       "description": "Moonshot Kimi K2.6 - 256K context, latest.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -71,7 +95,7 @@
       "auto_compact_token_limit": 245760,
       "effective_context_window_percent": 95,
       "experimental_supported_tools": [],
-      "input_modalities": ["text"],
+      "input_modalities": ["text", "image"],
       "supports_search_tool": false
     },
     {
@@ -80,10 +104,22 @@
       "description": "Alibaba Qwen 3.6 Plus - 1M context, reasoning, code, math.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -108,7 +144,7 @@
       "auto_compact_token_limit": 950000,
       "effective_context_window_percent": 95,
       "experimental_supported_tools": [],
-      "input_modalities": ["text"],
+      "input_modalities": ["text", "image"],
       "supports_search_tool": false
     },
     {
@@ -117,10 +153,22 @@
       "description": "Alibaba Qwen 3.5 Plus - 1M context, general purpose.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -145,7 +193,7 @@
       "auto_compact_token_limit": 950000,
       "effective_context_window_percent": 95,
       "experimental_supported_tools": [],
-      "input_modalities": ["text"],
+      "input_modalities": ["text", "image"],
       "supports_search_tool": false
     },
     {
@@ -154,10 +202,22 @@
       "description": "Alibaba Qwen 3.7 Max - 1M context, flagship (Anthropic bridge).",
       "default_reasoning_level": "high",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -174,7 +234,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 1048576,
@@ -191,10 +251,22 @@
       "description": "DeepSeek V4 Flash - 128K context, fast and cost-efficient.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -211,7 +283,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -228,10 +300,22 @@
       "description": "DeepSeek V4 Pro - 128K context, coding specialist.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -248,7 +332,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -265,10 +349,22 @@
       "description": "Zhipu GLM 5 - 128K context, general purpose.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -285,7 +381,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -302,10 +398,22 @@
       "description": "Zhipu GLM 5.1 - 128K context, latest.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -322,7 +430,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -339,10 +447,22 @@
       "description": "Xiaomi MiMo v2.5 - 128K context.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -367,7 +487,7 @@
       "auto_compact_token_limit": 120000,
       "effective_context_window_percent": 95,
       "experimental_supported_tools": [],
-      "input_modalities": ["text"],
+      "input_modalities": ["text", "image"],
       "supports_search_tool": false
     },
     {
@@ -376,10 +496,22 @@
       "description": "Xiaomi MiMo v2.5 Pro - 128K context, enhanced.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -396,7 +528,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -413,10 +545,22 @@
       "description": "Xiaomi MiMo v2 Pro - 128K context.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -433,7 +577,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -450,10 +594,22 @@
       "description": "Xiaomi MiMo v2 Omni - 128K context, multimodal (text + image).",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -470,7 +626,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -487,10 +643,22 @@
       "description": "MiniMax M2.5 - 128K context.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -507,7 +675,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -524,10 +692,22 @@
       "description": "MiniMax M2.7 - 128K context.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -544,7 +724,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -561,10 +741,22 @@
       "description": "MiniMax M3 - 128K context, latest.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -581,7 +773,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,
@@ -598,10 +790,22 @@
       "description": "HY3 preview model - 128K context.",
       "default_reasoning_level": "medium",
       "supported_reasoning_levels": [
-        {"effort": "low", "description": "Fast responses with lighter reasoning"},
-        {"effort": "medium", "description": "Balances speed and reasoning depth for everyday tasks"},
-        {"effort": "high", "description": "Greater reasoning depth for complex problems"},
-        {"effort": "xhigh", "description": "Maximum available reasoning for complex agentic tasks"}
+        {
+          "effort": "low",
+          "description": "Fast responses with lighter reasoning"
+        },
+        {
+          "effort": "medium",
+          "description": "Balances speed and reasoning depth for everyday tasks"
+        },
+        {
+          "effort": "high",
+          "description": "Greater reasoning depth for complex problems"
+        },
+        {
+          "effort": "xhigh",
+          "description": "Maximum available reasoning for complex agentic tasks"
+        }
       ],
       "shell_type": "shell_command",
       "visibility": "list",
@@ -618,7 +822,7 @@
       "default_verbosity": "low",
       "apply_patch_tool_type": "freeform",
       "web_search_tool_type": "text",
-      "truncation_policy": {"mode": "bytes", "limit": 10000},
+      "truncation_policy": { "mode": "bytes", "limit": 10000 },
       "supports_parallel_tool_calls": true,
       "supports_image_detail_original": false,
       "context_window": 131072,

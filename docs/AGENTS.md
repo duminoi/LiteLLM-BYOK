@@ -328,25 +328,34 @@ Hai patches ở trên fix lỗi trong quá trình transform.
 
 ## 17 Models
 
-| Slug              | Provider (real)       | Format           | Ghi chú                    |
-|-------------------|----------------------|------------------|----------------------------|
-| kimi-k2.5         | Moonshot             | chat_completions | 256K context               |
-| kimi-k2.6         | Moonshot             | chat_completions | 256K context, latest        |
-| qwen3.6-plus      | Alibaba              | chat_completions | 1M context, reasoning      |
-| qwen3.5-plus      | Alibaba              | chat_completions | 1M context                  |
-| qwen3.7-max       | Alibaba              | anthropic        | 1M context, flag-ship       |
-| deepseek-v4-flash | DeepSeek             | chat_completions | 128K, fast                  |
-| deepseek-v4-pro   | DeepSeek             | chat_completions | 128K, code                   |
-| glm-5             | Zhipu                | chat_completions | 128K                         |
-| glm-5.1           | Zhipu                | chat_completions | 128K, latest                 |
-| mimo-v2.5         | Xiaomi               | chat_completions | 128K                         |
-| mimo-v2.5-pro     | Xiaomi               | chat_completions | 128K                         |
-| mimo-v2-pro       | Xiaomi               | chat_completions | 128K                         |
-| mimo-v2-omni      | Xiaomi               | chat_completions | multimodal (text+image)     |
-| minimax-m2.5      | MiniMax              | chat_completions | 128K                         |
-| minimax-m2.7      | MiniMax              | chat_completions | 128K                         |
-| minimax-m3        | MiniMax              | chat_completions | 128K, latest                 |
-| hy3-preview       | (TBD)                | chat_completions | preview                       |
+| Slug              | Provider (real)       | Format           | Image | Ghi chú                    |
+|-------------------|----------------------|------------------|:-----:|----------------------------|
+| kimi-k2.5         | Moonshot             | chat_completions | ✓     | 256K context               |
+| kimi-k2.6         | Moonshot             | chat_completions | ✓     | 256K context, latest       |
+| qwen3.6-plus      | Alibaba              | chat_completions | ✓     | 1M context, reasoning      |
+| qwen3.5-plus      | Alibaba              | chat_completions | ✓     | 1M context                 |
+| qwen3.7-max       | Alibaba              | anthropic        | ✗     | 1M context, flag-ship      |
+| deepseek-v4-flash | DeepSeek             | chat_completions | ✗     | 128K, fast                 |
+| deepseek-v4-pro   | DeepSeek             | chat_completions | ✗     | 128K, code                 |
+| glm-5             | Zhipu                | chat_completions | ✗     | 128K                       |
+| glm-5.1           | Zhipu                | chat_completions | ✗     | 128K, latest               |
+| mimo-v2.5         | Xiaomi               | chat_completions | ✓     | 128K                       |
+| mimo-v2.5-pro     | Xiaomi               | chat_completions | ✗     | 128K                       |
+| mimo-v2-pro       | Xiaomi               | chat_completions | ✗¹    | 128K                       |
+| mimo-v2-omni      | Xiaomi               | chat_completions | ✓     | multimodal (text+image)    |
+| minimax-m2.5      | MiniMax              | chat_completions | ✗     | 128K                       |
+| minimax-m2.7      | MiniMax              | chat_completions | ✗¹    | 128K                       |
+| minimax-m3        | MiniMax              | chat_completions | △²    | 128K, latest               |
+| hy3-preview       | (TBD)                | chat_completions | ✗     | preview                    |
+
+**Chú thích cột Image:**
+
+- ✓ = Upstream thực sự xử lý ảnh, **catalog PHẢI** có `"input_modalities": ["text", "image"]` (xem [Troubleshooting](#lỗi-this-model-does-not-support-image-inputs))
+- ✗ = Upstream reject 400 khi gửi ảnh → giữ `["text"]` trong catalog
+- ✗¹ = Upstream **silent-ignore** ảnh (không 400 nhưng cũng không xem) → KHÔNG bật image vì sẽ gây UX kỳ lạ
+- △² = Upstream accept nhưng quality kém (vd `minimax-m3` trả "navy" khi ảnh đỏ) → chỉ bật nếu cần fallback
+
+**Cập nhật cột Image cho catalog:** Xem bảng ở trên, đối chiếu với `model-catalog.json` của bạn. Nếu có model ✓ mà catalog đang `["text"]` → sửa catalog, restart Codex.
 
 **Cách thêm model mới:**
 
@@ -413,6 +422,64 @@ curl -H "Authorization: Bearer sk-litellm-master-key-1234" `
 
 Nếu curl OK mà Codex fail → check `model_provider` trong config.toml
 phải là `litellm_byok`, khớp với `[model_providers.litellm_byok]`.
+
+### Lỗi "This model does not support image inputs"
+
+**Triệu chứng:** Trong Codex Desktop, chọn model có khả năng đọc ảnh (vd
+`qwen3.6-plus`) → paste ảnh vào input → báo đỏ:
+> This model does not support image inputs. Try a different model.
+
+**Nguyên nhân:** Codex check `input_modalities` trong `model-catalog.json`
+ở **client-side** trước khi gửi request. Nếu catalog khai báo `["text"]`
+thì Codex chặn luôn, không quan tâm upstream có support hay không.
+
+Lỗi này **không liên quan** đến LiteLLM proxy hay OpenCode Go upstream.
+Fix ở catalog là đủ, không cần restart proxy.
+
+**Cách fix:**
+
+1. Mở `model-catalog.json`, tìm entry của model đang lỗi
+2. Đổi `"input_modalities": ["text"]` → `"input_modalities": ["text", "image"]`
+3. Restart Codex Desktop (close + reopen app, không chỉ refresh)
+4. Paste lại ảnh → OK
+
+**Verify upstream thực sự support image** (trước khi bật trong catalog):
+
+```powershell
+# Test gửi ảnh PNG 1x1 màu đỏ tới 1 model
+$key = (Get-Content .env | Select-String "OPENCODE_GO_API_KEY=").ToString().Split("=")[1]
+$png = [Convert]::ToBase64String([byte[]](0x89,0x50,0x4E,0x47,0x0D,0x0A,0x1A,0x0A,0,0,0,0x0D,0x49,0x48,0x44,0x52,0,0,0,1,0,0,0,1,8,2,0,0,0,0x90,0x77,0x53,0xDE,0,0,0,0x0C,0x49,0x44,0x41,0x54,0x08,0x99,0x63,0xF8,0xCF,0xC0,0,0,0,3,0,1,0x6F,0x32,0x4A,0x73,0,0,0,0,0x49,0x45,0x4E,0x44,0xAE,0x42,0x60,0x82))
+$body = @{
+  model = "qwen3.6-plus"
+  messages = @(@{
+    role = "user"
+    content = @(
+      @{type="text"; text="Mô tả ảnh"}
+      @{type="image_url"; image_url=@{url="data:image/png;base64,$png"}}
+    )
+  })
+  max_tokens = 50
+} | ConvertTo-Json -Depth 10
+
+$r = Invoke-RestMethod -Uri "https://opencode.ai/zen/go/v1/chat/completions" `
+    -Method Post -Headers @{Authorization="Bearer $key"} `
+    -Body $body -ContentType "application/json"
+$r.choices[0].message.content
+```
+
+- Nếu response mô tả được màu → upstream **support image**, catalog sai → fix
+- Nếu response 400 với message "does not accept image/video" → upstream reject, **giữ** `["text"]`
+- Nếu response text-only ("no image provided") dù không 400 → upstream silent-ignore, **không bật** image
+
+**Models thường gặp lỗi này** (upstream support nhưng catalog dễ sai):
+
+| Model | Hiện trạng |
+|---|---|
+| `qwen3.6-plus` | Catalog mặc định `["text"]` - **CẦN SỬA** |
+| `qwen3.5-plus` | Catalog mặc định `["text"]` - **CẦN SỬA** |
+| `kimi-k2.5` / `kimi-k2.6` | Catalog mặc định `["text"]` - **CẦN SỬA** |
+| `mimo-v2.5` | Catalog mặc định `["text"]` - **CẦN SỬA** |
+| `mimo-v2-omni` | Catalog đúng `["text", "image"]` - OK |
 
 ---
 
