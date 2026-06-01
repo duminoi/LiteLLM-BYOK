@@ -1,0 +1,34 @@
+# API keys va local state - KHONG commit
+.env
+*.key
+*.secret
+
+# Logs
+*.log
+litellm.log
+litellm-err.log
+proxy.log
+proxy-stdout.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Temporary
+*.tmp
+*.bak

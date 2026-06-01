@@ -1,0 +1,13 @@
+﻿model_list:
+  - model_name: minimax-m2.7
+    litellm_params:
+      model: anthropic/minimax-m2.7
+      api_key: sk-cBNmterEUq2HcfdMzOcKstHuMpfeUXzqDf78QkFjKfY1rnu3sEXLij1L5x5KBBPy
+      api_base: https://opencode.ai/zen/go/v1
+
+litellm_settings:
+  drop_params: true
+  set_verbose: true
+
+general_settings:
+  master_key: sk-litellm-master-key-1234

@@ -1,0 +1,93 @@
+﻿model_list:
+  - model_name: deepseek-v4-flash
+    litellm_params:
+      model: openai/chat_completions/deepseek-v4-flash
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: deepseek-v4-pro
+    litellm_params:
+      model: openai/chat_completions/deepseek-v4-pro
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: glm-5
+    litellm_params:
+      model: openai/chat_completions/glm-5
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: glm-5.1
+    litellm_params:
+      model: openai/chat_completions/glm-5.1
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: kimi-k2.5
+    litellm_params:
+      model: openai/chat_completions/kimi-k2.5
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: kimi-k2.6
+    litellm_params:
+      model: openai/chat_completions/kimi-k2.6
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: mimo-v2.5
+    litellm_params:
+      model: openai/chat_completions/mimo-v2.5
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: mimo-v2.5-pro
+    litellm_params:
+      model: openai/chat_completions/mimo-v2.5-pro
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: minimax-m2.7
+    litellm_params:
+      model: openai/chat_completions/minimax-m2.7
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: minimax-m2.5
+    litellm_params:
+      model: openai/chat_completions/minimax-m2.5
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: minimax-m3
+    litellm_params:
+      model: openai/chat_completions/minimax-m3
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: qwen3.7-max
+    litellm_params:
+      model: anthropic/qwen3.7-max
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go
+  - model_name: qwen3.6-plus
+    litellm_params:
+      model: openai/chat_completions/qwen3.6-plus
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: qwen3.5-plus
+    litellm_params:
+      model: openai/chat_completions/qwen3.5-plus
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: mimo-v2-pro
+    litellm_params:
+      model: openai/chat_completions/mimo-v2-pro
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: mimo-v2-omni
+    litellm_params:
+      model: openai/chat_completions/mimo-v2-omni
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+  - model_name: hy3-preview
+    litellm_params:
+      model: openai/chat_completions/hy3-preview
+      api_key: os.environ/OPENCODE_GO_API_KEY
+      api_base: https://opencode.ai/zen/go/v1
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
